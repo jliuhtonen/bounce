@@ -15,9 +15,11 @@
 
 (defn- draw-court []
   (set-line-width! 2)
+  (.beginPath draw-surface)
   (.moveTo draw-surface 400 0)
   (.lineTo draw-surface 400 300)
   (.stroke draw-surface)
+  (.closePath draw-surface)
   (set-line-width! 5)
   (.strokeRect draw-surface 0 0 800 300))
 
@@ -30,7 +32,8 @@
         arc-start 0
         arc-length (* 2 (.-PI js/Math))]
     (.arc draw-surface x y r arc-start arc-length))
-  (.fill draw-surface))
+  (.fill draw-surface)
+  (.closePath draw-surface))
 
 (defn- draw-racket [racket]
   (set-line-width! 1)
