@@ -47,4 +47,5 @@
   (clear)
   (draw-court)
   (draw-ball (:ball state))
-  (draw-racket (:racket-1 state)))
+  (draw-racket (:racket-1 state))
+  (draw-racket (:racket-2 state)))
