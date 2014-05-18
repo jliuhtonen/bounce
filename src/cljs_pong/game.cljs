@@ -1,9 +1,11 @@
 (ns cljs-pong.game)
 
+(def field {:width 800 :height 300})
+
 (def ball-radius 3)
 (def racket {:width 6 :height 80 :distance-from-goal 50})
 
-(defn- ball [x y] {:x x :y y :radius 3})
+(defn- ball [x y] {:x x :y y :radius ball-radius})
 
 (defn- racket-rect [pos-x pos-y] (assoc racket :x (- pos-x (/ (:width racket) 2))
                        :y (- pos-y (/ (:height racket) 2)) :pos-y pos-y))
@@ -32,7 +34,12 @@
     (apply assoc state [:racket-1 (move-racket (:racket-1 state) player-1)
                   :racket-2 (move-racket (:racket-2 state) player-2)])))
 
-(def initial-state {:running true
-                    :ball (ball 400 150)
-                    :racket-1 (racket-rect (:distance-from-goal racket) 150)
-                    :racket-2 (racket-rect (- 800 (:distance-from-goal racket)) 150)})
+(def initial-state
+  (let [middle-y (/ (:height field) 2)
+        racket-1-x (:distance-from-goal racket)
+        racket-2-x (- (:width field) (:distance-from-goal racket))]
+      {:running true
+       :ball (ball 400 150)
+       :racket-1 (racket-rect racket-1-x middle-y)
+       :racket-2 (racket-rect racket-2-x middle-y)}))
+
