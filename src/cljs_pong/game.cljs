@@ -1,5 +1,5 @@
 (ns cljs-pong.game
-  (require [cljs-pong.racket :as racket]))
+  (:require [cljs-pong.racket :as racket]))
 
 (def field {:width 800 :height 300})
 
@@ -11,7 +11,7 @@
   (let [player-1 (:player-1 actions)
         player-2 (:player-2 actions)]
     (apply assoc state [:racket-1 (racket/move-racket (:racket-1 state) player-1)
-                  :racket-2 (move-racket (:racket-2 state) player-2)])))
+                  :racket-2 (racket/move-racket (:racket-2 state) player-2)])))
 
 (def initial-state
   (let [middle-y (/ (:height field) 2)
