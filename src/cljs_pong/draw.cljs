@@ -53,6 +53,7 @@
   (draw-ball (:ball state))
   (draw-paddle (:paddle-1 state))
   (draw-paddle (:paddle-2 state))
-  (let [scores (:score state)]
-    (draw-score "player-1-score" (:player-1 scores))
-    (draw-score "player-2-score" (:player-2 scores))))
+  (if (:score-changed state)
+    (let [scores (:score state)]
+      (draw-score "player-1-score" (:player-1 scores))
+      (draw-score "player-2-score" (:player-2 scores)))))
