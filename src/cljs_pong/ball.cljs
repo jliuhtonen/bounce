@@ -57,5 +57,5 @@
         hittable-rects (conj walls (:racket-1 state) (:racket-2 state))
         hit (ball-hits-rects ball-next-pos hittable-rects)]
     (if hit
-        (next-ball-pos (assoc ball :angle (bounce-angle ball hit)))
+      (next-ball-pos (assoc ball :angle (bounce-angle ball hit)))
       ball-next-pos)))
