@@ -1,5 +1,5 @@
 (ns cljs-pong.game
-  (:require [cljs-pong.racket :as racket]
+  (:require [cljs-pong.paddle :as paddle]
             [cljs-pong.ball :as ball]
             [cljs-pong.math :as math]))
 
@@ -16,17 +16,17 @@
 (defn update-state [state actions]
   (let [player-1 (:player-1 actions)
         player-2 (:player-2 actions)]
-    (apply assoc state [:racket-1 (racket/move-racket (:racket-1 state) player-1)
-                  :racket-2 (racket/move-racket (:racket-2 state) player-2)
+    (apply assoc state [:paddle-1 (paddle/move-paddle (:paddle-1 state) player-1)
+                  :paddle-2 (paddle/move-paddle (:paddle-2 state) player-2)
                   :ball (ball/move-ball state)])))
 
 (def initial-state
   (let [middle-y (/ (:height field) 2)
-        racket-1-x racket/distance-from-goal
-        racket-2-x (- (:width field) racket/distance-from-goal)]
+        paddle-1-x paddle/distance-from-goal
+        paddle-2-x (- (:width field) paddle/distance-from-goal)]
       {:running true
        :ball (ball 400 150)
-       :racket-1 (racket/racket-rect racket-1-x middle-y)
-       :racket-2 (racket/racket-rect racket-2-x middle-y)
+       :paddle-1 (paddle/paddle-rect paddle-1-x middle-y)
+       :paddle-2 (paddle/paddle-rect paddle-2-x middle-y)
        :walls [top-wall bottom-wall]}))
 

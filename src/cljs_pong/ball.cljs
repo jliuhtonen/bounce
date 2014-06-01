@@ -54,7 +54,7 @@
   (let [ball (:ball state)
         ball-next-pos (next-ball-pos ball)
         walls (:walls state)
-        hittable-rects (conj walls (:racket-1 state) (:racket-2 state))
+        hittable-rects (conj walls (:paddle-1 state) (:paddle-2 state))
         hit (ball-hits-rects ball-next-pos hittable-rects)]
     (if hit
       (next-ball-pos (assoc ball :angle (bounce-angle ball hit)))

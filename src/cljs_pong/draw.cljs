@@ -35,17 +35,17 @@
   (.fill draw-surface)
   (.closePath draw-surface))
 
-(defn- draw-racket [racket]
+(defn- draw-paddle [paddle]
   (set-line-width! 1)
-  (let [x (:x racket)
-        y (:y racket)
-        width (:width racket)
-        height (:height racket)]
+  (let [x (:x paddle)
+        y (:y paddle)
+        width (:width paddle)
+        height (:height paddle)]
     (.fillRect draw-surface x y width height)))
 
 (defn draw-game [state]
   (clear)
   (draw-court)
   (draw-ball (:ball state))
-  (draw-racket (:racket-1 state))
-  (draw-racket (:racket-2 state)))
+  (draw-paddle (:paddle-1 state))
+  (draw-paddle (:paddle-2 state)))
