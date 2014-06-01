@@ -17,9 +17,12 @@
       (swap! player-action conj action))))
 
 (defn- key-up [key-code]
-  (let [action (key-code-to-action key-code)]
-    (if (not (= :unknown action))
-      (swap! player-action conj (assoc (key-code-to-action key-code) 1 :none)))))
+  (let [action (key-code-to-action key-code)
+        player (first action)
+        current-player-action (get @player-action player)
+        key-up-player-action (last action)]
+    (if (= current-player-action key-up-player-action)
+      (swap! player-action conj [player :none]))))
 
 (defn get-player-actions [] @player-action)
 
