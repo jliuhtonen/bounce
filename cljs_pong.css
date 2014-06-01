@@ -1,4 +1,16 @@
 body {
-    background: #000000;
-    color: #ffffff;
+  background: #000000;
+  color: #ffffff;
+}
+
+#game-area {
+  width: 800px;
+}
+
+#player-1-score {
+  float: left;
+}
+
+#player-2-score {
+  float: right;
 }

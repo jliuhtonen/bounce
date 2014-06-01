@@ -5,7 +5,11 @@
     </head>
     <body>
         <h3>cljs pong!</h3>
-        <canvas id="canvas" width="800" height="300"></canvas>
+        <section id="game-area">
+            <span id="player-1-score" class="score">10</span>
+            <span id="player-2-score" class="score">5</span>
+            <canvas id="canvas" width="800" height="300"></canvas>
+        </section>
         <script src="out/goog/base.js" type="text/javascript"></script>
         <script src="cljs_pong.js" type="text/javascript"></script>
         <script type="text/javascript">goog.require("cljs_pong.core");</script>

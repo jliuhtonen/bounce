@@ -24,7 +24,8 @@
        :ball (ball 400 150)
        :paddle-1 (paddle/paddle-rect paddle-1-x middle-y)
        :paddle-2 (paddle/paddle-rect paddle-2-x middle-y)
-       :walls [top-wall bottom-wall]}))
+       :walls [top-wall bottom-wall]
+       :score-changed false}))
 
 (defn- update-score [score ball]
   (let [x (:x ball)
@@ -48,14 +49,14 @@
         updated-paddle-2 (paddle/move-paddle (:paddle-2 state) player-2)
         moved-ball (ball/move-ball state)
         updated-score (update-score (:score state) moved-ball)
-        updated-ball (if (= score updated-score) moved-ball (:ball initial-state))
+        score-changed (not (= score updated-score))
+        updated-ball (if score-changed
+                       (:ball initial-state) moved-ball)
         still-running (running? updated-score)]
-    (do
-      (println updated-score)
-      (println still-running)
       (apply assoc state [:paddle-1 updated-paddle-1
                     :paddle-2 updated-paddle-2
                     :ball updated-ball
                     :score updated-score
-                    :running still-running]))))
+                    :running still-running
+                    :score-changed score-changed])))
 
