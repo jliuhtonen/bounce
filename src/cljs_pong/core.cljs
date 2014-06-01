@@ -24,7 +24,5 @@
 (defn start-game []
   (game-loop logic/initial-state))
 
-(println "moi")
-
 (keyhandler/register-key-handlers)
 (start-game)
