@@ -25,7 +25,7 @@
        :paddle-1 (paddle/paddle-rect paddle-1-x middle-y)
        :paddle-2 (paddle/paddle-rect paddle-2-x middle-y)
        :walls [top-wall bottom-wall]
-       :score-changed false}))
+       :score-changed true}))
 
 (defn- update-score [score ball]
   (let [x (:x ball)

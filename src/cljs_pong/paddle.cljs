@@ -27,12 +27,12 @@
 (defn- move-paddle-down [paddle]
   (let [bottom-y (+ (:y paddle) height)]
     (if
-      (< (paddle-bottom-y paddle) 800)
+      (< (paddle-bottom-y paddle) 300)
       (new-paddle-position + paddle)
       paddle)))
 
 (defn move-paddle [paddle action]
   (case action
     :up (move-paddle-up paddle)
-    :down (new-paddle-position + paddle)
+    :down (move-paddle-down paddle)
     paddle))
