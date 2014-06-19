@@ -9,7 +9,7 @@
 (def top-wall { :x 0 :y 0 :width (:width field) :height wall-height })
 (def bottom-wall { :x 0 :y (- 300 wall-height) :width (:width field) :height wall-height })
 
-(def goals-to-win 10)
+(def goals-to-win 1000)
 
 (def ball-radius 3)
 

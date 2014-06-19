@@ -1,38 +1,51 @@
-(ns cljs-pong.paddle)
+(ns cljs-pong.paddle
+  (:require [cljs-pong.math :as math]))
 
 (def distance-from-goal 50)
 (def width 6)
 (def height 80)
 
-(def paddle {:distance-from-goal 50 :width 6 :height 80})
+(def acceleration 0.8)
+(def deceleration 0.01)
+(def max-speed 5)
+
+(def paddle {:distance-from-goal 50 :width 6 :height 80 :speed 0})
 
 (defn paddle-rect [pos-x pos-y]
   (assoc paddle :x (- pos-x (/ (:width paddle) 2))
                 :y (- pos-y (/ height 2)) :pos-y pos-y))
 
-(defn- move-paddle-rect [paddle pos-y]
-  (assoc paddle :y (- pos-y (/ height 2)) :pos-y pos-y))
-
 (defn- paddle-bottom-y [paddle] (+ (:y paddle) (:height paddle)))
 
-(defn- new-paddle-position [f paddle]
-  (move-paddle-rect paddle (f (:pos-y paddle) 3)))
+(defn- new-paddle-position [paddle velocity]
+  (let [pos-y (+ (:pos-y paddle) velocity)]
+    (assoc paddle :y (- pos-y (/ height 2)) :pos-y pos-y :speed velocity)))
 
-(defn- move-paddle-up [paddle]
+(defn- change-position [paddle velocity]
   (if
-    (> (:y paddle) 0)
-    (new-paddle-position - paddle)
-    paddle))
+    (or
+      (<= (+ (:y paddle) velocity) 0)
+      (>= (+ (paddle-bottom-y paddle) velocity) 300))
+    (new-paddle-position paddle (* -1 (/ velocity 2)))
+    (new-paddle-position paddle velocity)))
 
-(defn- move-paddle-down [paddle]
-  (let [bottom-y (+ (:y paddle) height)]
-    (if
-      (< (paddle-bottom-y paddle) 300)
-      (new-paddle-position + paddle)
-      paddle)))
+(defn- accelerate [f velocity]
+  (let [new-velocity (f velocity acceleration)]
+    (if (< (math/abs new-velocity) max-speed)
+      new-velocity
+      (f 0 max-speed))))
+
+(defn- decelerate [velocity]
+  (if (< (math/abs velocity) deceleration)
+    0
+    (+ velocity (* -1 (math/sign velocity) deceleration))))
+
+(defn- calculate-new-velocity [velocity action]
+  (case action
+    :up (accelerate - velocity)
+    :down (accelerate + velocity)
+    (decelerate velocity)))
 
 (defn move-paddle [paddle action]
-  (case action
-    :up (move-paddle-up paddle)
-    :down (move-paddle-down paddle)
-    paddle))
+  (let [new-velocity (calculate-new-velocity (:speed paddle) action)]
+    (change-position paddle new-velocity)))
