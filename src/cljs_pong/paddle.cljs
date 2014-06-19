@@ -6,8 +6,9 @@
 (def height 80)
 
 (def acceleration 0.8)
-(def deceleration 0.01)
+(def deceleration 0.1)
 (def max-speed 5)
+(def speed-loss-in-collision 0.75)
 
 (def paddle {:distance-from-goal 50 :width 6 :height 80 :speed 0})
 
@@ -26,7 +27,7 @@
     (or
       (<= (+ (:y paddle) velocity) 0)
       (>= (+ (paddle-bottom-y paddle) velocity) 300))
-    (new-paddle-position paddle (* -1 (/ velocity 2)))
+    (new-paddle-position paddle (* -1 velocity speed-loss-in-collision))
     (new-paddle-position paddle velocity)))
 
 (defn- accelerate [f velocity]
@@ -36,7 +37,7 @@
       (f 0 max-speed))))
 
 (defn- decelerate [velocity]
-  (if (< (math/abs velocity) deceleration)
+  (if (< (math/abs velocity) 0.001)
     0
     (+ velocity (* -1 (math/sign velocity) deceleration))))
 
