@@ -1,10 +1,28 @@
 body {
-  background: #000000;
-  color: #ffffff;
+  color: rgba(213, 115, 230, 1);
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 25px auto;
 }
 
 #game-area {
-  width: 800px;
+  width: 500px;
+}
+
+canvas {
+  margin: auto auto;
+  display: block;
+  width: 600px;
+  height: 500px;
+}
+
+#scoreboard {
+    height: 25px;
+    width: 600px;
+    margin: 0 auto;
 }
 
 #player-1-score {

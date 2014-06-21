@@ -1,6 +1,7 @@
-(ns cljs-pong.draw)
+(ns cljs-pong.draw
+  (:require [cljs-pong.config :as config]))
 
-(def draw-color "rgba(255, 255, 255, 1)")
+(def draw-color "rgba(213, 115, 230, 1)")
 
 (def draw-surface (let [canvas (.getElementById js/document "canvas")
                         ctx (.getContext canvas "2d")]
@@ -11,17 +12,17 @@
 (defn- set-line-width! [w] (set! (.-lineWidth draw-surface) w))
 
 (defn clear []
-  (.clearRect draw-surface 0 0 800 300))
+  (.clearRect draw-surface 0 0 (:width config/field) (:height config/field)))
 
 (defn- draw-court []
   (set-line-width! 2)
   (.beginPath draw-surface)
-  (.moveTo draw-surface 400 0)
-  (.lineTo draw-surface 400 300)
+  (.moveTo draw-surface (/ (:width config/field) 2) 0)
+  (.lineTo draw-surface (/ (:width config/field) 2) (:height config/field))
   (.stroke draw-surface)
   (.closePath draw-surface)
   (set-line-width! 5)
-  (.strokeRect draw-surface 0 0 800 300))
+  (.strokeRect draw-surface 0 0 (:width config/field) (:height config/field)))
 
 (defn- draw-ball [ball]
   (set-line-width! 1)

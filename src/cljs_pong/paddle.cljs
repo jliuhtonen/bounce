@@ -1,16 +1,17 @@
 (ns cljs-pong.paddle
-  (:require [cljs-pong.math :as math]))
+  (:require [cljs-pong.math :as math]
+            [cljs-pong.config :as config]))
 
 (def distance-from-goal 50)
 (def width 6)
 (def height 80)
 
-(def acceleration 0.8)
-(def deceleration 0.1)
-(def max-speed 5)
-(def speed-loss-in-collision 0.75)
+(def acceleration 2)
+(def deceleration 0.6)
+(def max-speed 8)
+(def speed-loss-in-collision 0.6)
 
-(def paddle {:distance-from-goal 50 :width 6 :height 80 :speed 0})
+(def paddle {:distance-from-goal 50 :width 10 :height 80 :speed 0})
 
 (defn paddle-rect [pos-x pos-y]
   (assoc paddle :x (- pos-x (/ (:width paddle) 2))
@@ -26,7 +27,7 @@
   (if
     (or
       (<= (+ (:y paddle) velocity) 0)
-      (>= (+ (paddle-bottom-y paddle) velocity) 300))
+      (>= (+ (paddle-bottom-y paddle) velocity) (:height config/field)))
     (new-paddle-position paddle (* -1 velocity speed-loss-in-collision))
     (new-paddle-position paddle velocity)))
 
