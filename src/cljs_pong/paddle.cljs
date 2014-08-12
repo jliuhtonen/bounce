@@ -6,8 +6,8 @@
 (def width 6)
 (def height 80)
 
-(def acceleration 2)
-(def deceleration 0.6)
+(def acceleration 1.7)
+(def deceleration 0.4)
 (def max-speed 8)
 (def speed-loss-in-collision 0.6)
 
@@ -38,7 +38,7 @@
       (f 0 max-speed))))
 
 (defn- decelerate [velocity]
-  (if (< (math/abs velocity) 0.001)
+  (if (< (math/abs velocity) deceleration)
     0
     (+ velocity (* -1 (math/sign velocity) deceleration))))
 

@@ -12,7 +12,7 @@
 
 (def ball-radius 4)
 
-(defn- ball [x y] {:x x :y y :radius ball-radius :angle (/ 2 math/pi) :speed 9})
+(defn- ball [x y] {:x x :y y :radius ball-radius :angle (/ 2 math/pi) :speed 5})
 
 (def initial-state
   (let [middle-y (/ (:height config/field) 2)
