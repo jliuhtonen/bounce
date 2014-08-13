@@ -10,17 +10,13 @@
 
 (def goals-to-win 10)
 
-(def ball-radius 4)
-
-(defn- ball [x y] {:x x :y y :radius ball-radius :angle (/ 2 math/pi) :speed 5})
-
 (def initial-state
   (let [middle-y (/ (:height config/field) 2)
         paddle-1-x paddle/distance-from-goal
         paddle-2-x (- (:width config/field) paddle/distance-from-goal)]
       {:running true
        :score { :player-1 0 :player-2 0}
-       :ball (ball (/ (:width config/field) 2) (/ (:height config/field) 2))
+       :ball (ball/new-ball)
        :paddle-1 (paddle/paddle-rect paddle-1-x middle-y)
        :paddle-2 (paddle/paddle-rect paddle-2-x middle-y)
        :walls [top-wall bottom-wall]
@@ -50,7 +46,8 @@
         updated-score (update-score (:score state) moved-ball)
         score-changed (not (= score updated-score))
         updated-ball (if score-changed
-                       (:ball initial-state) moved-ball)
+                       (ball/new-ball)
+                       moved-ball)
         still-running (running? updated-score)]
       (apply assoc state [:paddle-1 updated-paddle-1
                     :paddle-2 updated-paddle-2

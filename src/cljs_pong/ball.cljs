@@ -1,5 +1,8 @@
 (ns cljs-pong.ball
-  (:require [cljs-pong.math :as math]))
+  (:require [cljs-pong.math :as math]
+            [cljs-pong.config :as config]))
+
+(def ball-radius 4)
 
 (defn- point [x y] {:x x :y y})
 
@@ -49,6 +52,18 @@
     (if (< hit-top-y ball-y hit-bottom-y)
       (- math/pi angle)
       (- (* 2 math/pi) angle))))
+
+(defn new-ball-angle [] (* 2 math/pi (math/random)))
+
+(defn new-ball []
+  (let
+    [x (/ (:width config/field) 2)
+     y (/ (:height config/field) 2)]
+    { :x x
+      :y y
+      :radius ball-radius
+      :angle (new-ball-angle)
+      :speed 8 }))
 
 (defn move-ball [state]
   (let [ball (:ball state)

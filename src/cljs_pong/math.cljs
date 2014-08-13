@@ -6,3 +6,4 @@
 (defn abs [a] ((.-abs js/Math) a))
 (defn floor [a] ((.-floor js/Math) a))
 (defn sign [a] (if (< a 0) -1 1))
+(defn random [] ((.-random js/Math)))
