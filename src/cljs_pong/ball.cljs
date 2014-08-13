@@ -53,7 +53,16 @@
       (- math/pi angle)
       (- (* 2 math/pi) angle))))
 
-(defn new-ball-angle [] (* 2 math/pi (math/random)))
+(defn new-ball-angle []
+  (let [random-num (math/random)
+        p1-min (/ (* 3 math/pi) 4)
+        p1-max (/ (* 5 math/pi) 4)
+        p2-max (/ math/pi 4)
+        p2-min (/ (* -1 math/pi) 4)]
+    (if
+      (< random-num 0.5)
+      (math/random-between p1-min p1-max)
+      (math/random-between p2-min p2-max))))
 
 (defn new-ball []
   (let
