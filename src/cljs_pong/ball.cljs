@@ -53,7 +53,17 @@
       (- math/pi angle)
       (- (* 2 math/pi) angle))))
 
-(defn new-ball-angle []
+(defn move-ball [state]
+  (let [ball (:ball state)
+        ball-next-pos (next-ball-pos ball)
+        walls (:walls state)
+        hittable-rects (conj walls (:paddle-1 state) (:paddle-2 state))
+        hit (ball-hits-rects ball-next-pos hittable-rects)]
+    (if hit
+      (next-ball-pos (assoc ball :angle (bounce-angle ball hit)))
+      ball-next-pos)))
+
+(defn- random-ball-pass-angle []
   (let [random-num (math/random)
         p1-min (/ (* 3 math/pi) 4)
         p1-max (/ (* 5 math/pi) 4)
@@ -71,15 +81,5 @@
     { :x x
       :y y
       :radius ball-radius
-      :angle (new-ball-angle)
+      :angle (random-ball-pass-angle)
       :speed 8 }))
-
-(defn move-ball [state]
-  (let [ball (:ball state)
-        ball-next-pos (next-ball-pos ball)
-        walls (:walls state)
-        hittable-rects (conj walls (:paddle-1 state) (:paddle-2 state))
-        hit (ball-hits-rects ball-next-pos hittable-rects)]
-    (if hit
-      (next-ball-pos (assoc ball :angle (bounce-angle ball hit)))
-      ball-next-pos)))
