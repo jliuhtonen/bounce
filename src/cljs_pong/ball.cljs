@@ -3,6 +3,7 @@
             [cljs-pong.config :as config]))
 
 (def ball-radius 4)
+(def max-speed 8)
 
 (defn- point [x y] {:x x :y y})
 
@@ -53,14 +54,33 @@
       (- math/pi angle)
       (- (* 2 math/pi) angle))))
 
+(defn- paddle-hit-effect [ball-speed ball-angle paddle]
+  (let [delta-h ball-speed
+        delta-x (* delta-h (math/cos ball-angle))
+        delta-y (* delta-h (math/sin ball-angle))
+        new-delta-y (+ delta-y (:speed paddle))
+        new-delta-h (math/sqrt (+ (math/squared delta-x) (math/squared new-delta-y)))
+        new-angle (math/atan2 new-delta-y delta-x)]
+    { :angle new-angle :speed (math/min new-delta-h max-speed) }))
+
+(defn- bounce-effects [ball hit paddle-1 paddle-2]
+  (let [bounce-angle (bounce-angle ball hit)
+        ball-velocity (:speed ball)]
+    (cond
+      (= hit paddle-1) (paddle-hit-effect ball-velocity bounce-angle paddle-1)
+      (= hit paddle-2) (paddle-hit-effect ball-velocity bounce-angle paddle-2)
+      :else { :angle bounce-angle })))
+
 (defn move-ball [state]
   (let [ball (:ball state)
         ball-next-pos (next-ball-pos ball)
         walls (:walls state)
-        hittable-rects (conj walls (:paddle-1 state) (:paddle-2 state))
+        paddle-1 (:paddle-1 state)
+        paddle-2 (:paddle-2 state)
+        hittable-rects (conj walls paddle-1 paddle-2)
         hit (ball-hits-rects ball-next-pos hittable-rects)]
     (if hit
-      (next-ball-pos (assoc ball :angle (bounce-angle ball hit)))
+      (next-ball-pos (merge ball (bounce-effects ball hit paddle-1 paddle-2)))
       ball-next-pos)))
 
 (defn- random-ball-pass-angle []
@@ -82,4 +102,4 @@
       :y y
       :radius ball-radius
       :angle (random-ball-pass-angle)
-      :speed 8 }))
+      :speed 4 }))
