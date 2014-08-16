@@ -11,7 +11,7 @@
 (def max-speed 8)
 (def speed-loss-in-collision 0.6)
 
-(def paddle {:distance-from-goal 50 :width 10 :height 80 :speed 0})
+(def paddle {:distance-from-goal 50 :width 10 :height 80 :velocity 0})
 
 (defn paddle-rect [pos-x pos-y]
   (assoc paddle :x (- pos-x (/ (:width paddle) 2))
@@ -21,7 +21,7 @@
 
 (defn- new-paddle-position [paddle velocity]
   (let [pos-y (+ (:pos-y paddle) velocity)]
-    (assoc paddle :y (- pos-y (/ height 2)) :pos-y pos-y :speed velocity)))
+    (assoc paddle :y (- pos-y (/ height 2)) :pos-y pos-y :velocity velocity)))
 
 (defn- change-position [paddle velocity]
   (if
@@ -49,5 +49,5 @@
     (decelerate velocity)))
 
 (defn move-paddle [paddle action]
-  (let [new-velocity (calculate-new-velocity (:speed paddle) action)]
+  (let [new-velocity (calculate-new-velocity (:velocity paddle) action)]
     (change-position paddle new-velocity)))

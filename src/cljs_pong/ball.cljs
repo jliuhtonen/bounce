@@ -2,7 +2,7 @@
   (:require [cljs-pong.math :as math]
             [cljs-pong.config :as config]))
 
-(def ball-radius 4)
+(def radius 4)
 (def max-speed 8)
 
 (defn- point [x y] {:x x :y y})
@@ -58,10 +58,10 @@
   (let [delta-h ball-speed
         delta-x (* delta-h (math/cos ball-angle))
         delta-y (* delta-h (math/sin ball-angle))
-        new-delta-y (+ delta-y (:speed paddle))
+        new-delta-y (+ delta-y (:velocity paddle))
         new-delta-h (math/sqrt (+ (math/squared delta-x) (math/squared new-delta-y)))
         new-angle (math/atan2 new-delta-y delta-x)]
-    { :angle new-angle :speed (math/min new-delta-h max-speed) }))
+    { :angle new-angle :speed (math/minimum new-delta-h max-speed) }))
 
 (defn- bounce-effects [ball hit paddle-1 paddle-2]
   (let [bounce-angle (bounce-angle ball hit)
@@ -100,6 +100,6 @@
      y (/ (:height config/field) 2)]
     { :x x
       :y y
-      :radius ball-radius
+      :radius radius
       :angle (random-ball-pass-angle)
       :speed 4 }))
