@@ -6,7 +6,7 @@
 (def width 6)
 (def height 80)
 
-(def acceleration 1.7)
+(def acceleration 0.8)
 (def deceleration 0.4)
 (def max-speed 8)
 (def speed-loss-in-collision 0.6)

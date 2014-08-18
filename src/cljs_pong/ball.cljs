@@ -18,14 +18,12 @@
 
 (defn- point-in-rect [point rect]
   (and
-   "x's"
-   (and
+    "x's"
     (>= (:x point) (:x rect))
-    (<= (:x point) (+ (:x rect) (:width rect))))
-   "y's"
-   (and
+    (<= (:x point) (+ (:x rect) (:width rect)))
+    "y's"
     (>= (:y point) (:y rect))
-    (<= (:y point) (+ (:y rect) (:height rect))))))
+    (<= (:y point) (+ (:y rect) (:height rect)))))
 
 (defn- points-in-rect [points rect]
   (some #(point-in-rect % rect) points))
