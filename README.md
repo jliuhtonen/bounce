@@ -3,16 +3,6 @@ Bounce
 
 Bounce is a game of table tennis on the web for two players. It is mimicking the classic game of [Pong](http://en.wikipedia.org/wiki/Pong) with some extra twists. It is written in [ClojureScript](https://github.com/clojure/clojurescript) starting out with [Mies](https://github.com/swannodette/mies) [Leiningen](http://leiningen.org/) template. Any resemblance to the actual laws of physics is purely coincidental.
 
-Ideas for further hacking (or a "backlog" as they say)
---------
-
-* instructions on how to play the game (splash screen/menu maybe?)
-* increasing ball speed
-* stages (winter, space etc.)
-* controls for the game parameters
-* some djuizy visuals
-* an AI for the lonely
-
 Licence
 --------
 
