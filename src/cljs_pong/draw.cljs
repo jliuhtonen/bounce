@@ -1,9 +1,13 @@
 (ns cljs-pong.draw
-  (:require [cljs-pong.config :as config]))
+  (:require [cljs-pong.config :as config]
+            [dommy.utils :as utils]
+            [dommy.core :as dommy])
+  (:use-macros
+    [dommy.macros :only [sel1]]))
 
 (def draw-color "rgba(213, 115, 230, 1)")
 
-(def draw-surface (let [canvas (.getElementById js/document "canvas")
+(def draw-surface (let [canvas (sel1 :#canvas)
                         ctx (.getContext canvas "2d")]
                     (set! (.-fillStyle ctx) draw-color)
                     (set! (.-strokeStyle ctx) draw-color)
