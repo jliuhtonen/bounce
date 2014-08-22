@@ -6,6 +6,8 @@
   (:use-macros
    [dommy.macros :only [sel sel1]]))
 
+(def game-in-progress (atom false))
+
 (enable-console-print!)
 
 (defn- schedule [f] (js/requestAnimationFrame f))
@@ -16,6 +18,7 @@
     (if (:running new-state)
       (schedule #(game-loop new-state))
       (do
+        (reset! game-in-progress false)
         (-> :#top-message
             sel1
             dommy/show!)
@@ -40,8 +43,11 @@
         (f)))))
 
 (defn start-game []
-  (-> :#top-message sel1 dommy/hide!)
-  (count-down 3 "GO" #(game-loop logic/initial-state)))
+  (if (not @game-in-progress)
+    (do
+      (-> :#top-message sel1 dommy/hide!)
+      (reset! game-in-progress true)
+      (count-down 3 "GO" #(game-loop logic/initial-state)))))
 
 (draw/draw-game logic/initial-state)
 (keyhandler/register-key-handlers start-game)
