@@ -23,6 +23,7 @@ canvas {
     height: 25px;
     width: 600px;
     margin: 0 auto;
+    position: relative;
 }
 
 #player-1-score {
@@ -31,6 +32,11 @@ canvas {
 
 #player-2-score {
   float: right;
+}
+
+#top-message {
+  position: absolute;
+  left: 29%;
 }
 
 #instructions {
@@ -64,4 +70,22 @@ dd {
   float: left;
   clear: right;
   margin-bottom: 3px;
+}
+
+#message {
+  position: fixed;
+  display: block;
+  font-size: 32px;
+  margin: 0 auto;
+  top: 47%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.hidden {
+  opacity: 0;
+  font-size: 64px;
+  color: #000000;
+  transition: all 0.8s;
 }
