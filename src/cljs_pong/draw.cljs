@@ -49,8 +49,8 @@
     (.fillRect draw-surface x y width height)))
 
 (defn- draw-score [id score]
-  (let [elem (.getElementById js/document id)]
-    (set! (.-innerHTML elem) (str score))))
+  (-> (sel1 id)
+      (dommy/set-text! (str score))))
 
 (defn draw-game [state]
   (clear)
@@ -60,5 +60,5 @@
   (draw-paddle (:paddle-2 state))
   (if (:score-changed state)
     (let [scores (:score state)]
-      (draw-score "player-1-score" (:player-1 scores))
-      (draw-score "player-2-score" (:player-2 scores)))))
+      (draw-score :#player-1-score (:player-1 scores))
+      (draw-score :#player-2-score (:player-2 scores)))))
