@@ -9,7 +9,7 @@
 (def acceleration 0.8)
 (def deceleration 0.4)
 (def max-speed 8)
-(def speed-loss-in-collision 0.6)
+(def speed-loss-in-collision 0.5)
 
 (def paddle {:distance-from-goal 50 :width 10 :height 80 :velocity 0})
 
