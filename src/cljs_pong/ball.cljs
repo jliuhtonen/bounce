@@ -4,6 +4,7 @@
 
 (def radius 4)
 (def max-speed 8)
+(def paddle-speed-effect-multiplier 0.6)
 
 (defn- point [x y] {:x x :y y})
 
@@ -56,10 +57,11 @@
   (let [delta-h ball-speed
         delta-x (* delta-h (math/cos ball-angle))
         delta-y (* delta-h (math/sin ball-angle))
-        new-delta-y (+ delta-y (:velocity paddle))
+        new-delta-y (+ delta-y (* paddle-speed-effect-multiplier (:velocity paddle)))
         new-delta-h (math/sqrt (+ (math/squared delta-x) (math/squared new-delta-y)))
         new-angle (math/atan2 new-delta-y delta-x)]
-    { :angle new-angle :speed (math/minimum new-delta-h max-speed) }))
+    { :angle new-angle
+      :speed (math/minimum new-delta-h max-speed) }))
 
 (defn- bounce-effects [ball hit paddle-1 paddle-2]
   (let [bounce-angle (bounce-angle ball hit)
