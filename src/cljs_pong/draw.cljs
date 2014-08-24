@@ -48,17 +48,9 @@
         height (:height paddle)]
     (.fillRect draw-surface x y width height)))
 
-(defn- draw-score [id score]
-  (-> (sel1 id)
-      (dommy/set-text! (str score))))
-
 (defn draw-game [state]
   (clear)
   (draw-court)
   (draw-ball (:ball state))
   (draw-paddle (:paddle-1 state))
-  (draw-paddle (:paddle-2 state))
-  (if (:score-changed state)
-    (let [scores (:score state)]
-      (draw-score :#player-1-score (:player-1 scores))
-      (draw-score :#player-2-score (:player-2 scores)))))
+  (draw-paddle (:paddle-2 state)))
