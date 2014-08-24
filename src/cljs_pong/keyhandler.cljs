@@ -13,22 +13,29 @@
     76 [:player-2 :down]
     nil))
 
-(defn- key-down [key-code]
+(defn- handle-down-keycode [key-code]
   (if-let [action (key-code-to-action key-code)]
     (swap! player-action conj action)))
 
-(defn- key-up [key-code game-starter]
+(defn- handle-up-keycode [key-code game-starter]
   (if (= game-start-key key-code)
     (game-starter)
     (if-let [action (key-code-to-action key-code)]
       (let [player (first action)
             current-player-action (get @player-action player)
-            key-up-player-action (last action)]
-        (if (= current-player-action key-up-player-action)
+            handle-up-keycode-player-action (last action)]
+        (if (= current-player-action handle-up-keycode-player-action)
           (swap! player-action conj [player :none]))))))
+
+(defn- key-event-handler [handle-keycode]
+  (fn [event]
+    (let [key-code (.-keyCode event)]
+      (handle-keycode key-code)
+      (.preventDefault event)
+      (.stopPropagation event))))
 
 (defn get-player-actions [] @player-action)
 
 (defn register-key-handlers [game-starter]
-  (set! (.-onkeydown js/document) #(key-down (.-keyCode %)))
-  (set! (.-onkeyup js/document) #(key-up (.-keyCode %) game-starter)))
+    (set! (.-onkeydown js/document) (key-event-handler handle-down-keycode))
+    (set! (.-onkeyup js/document) (key-event-handler #(handle-up-keycode % game-starter))))
