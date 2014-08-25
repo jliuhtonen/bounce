@@ -43,33 +43,34 @@ canvas {
   height: 25px;
   width: 600px;
   margin: 0 auto;
+  padding: 3px;
 }
 
-#player-1-keys {
-  float: left;
-}
-
-#player-2-keys {
-  float:right;
-}
-
-dt {
+#instructions span.key {
   min-width: 12px;
   padding: 3px;
   background: rgb(213, 115, 230);
   color: rgb(255, 255, 255);
-  float: left;
-  clear: left;
   margin-bottom: 3px;
   text-align: center;
+  display: inline-block;
 }
 
-dd {
+#instructions span.legend {
   padding: 3px;
   display: inline-block;
-  float: left;
-  clear: right;
+  text-align: center;
+  width: 550px;
   margin-bottom: 3px;
+}
+
+dd.left {
+  float: left;
+}
+
+dd.right {
+  float: right;
+  clear: right;
 }
 
 #message {
