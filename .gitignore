@@ -2,7 +2,6 @@ pom.xml
 *jar
 /lib/
 /classes/
-/out/
 /target/
 .lein-deps-sum
 .lein-repl-history
@@ -10,4 +9,3 @@ pom.xml
 *.iml
 .idea/
 .nrepl-port
-*.js
