@@ -18,7 +18,7 @@
 (defn clear []
   (.clearRect draw-surface 0 0 (:width config/field) (:height config/field)))
 
-(defn- draw-court []
+(defn- draw-court! []
   (set-line-width! 2)
   (.beginPath draw-surface)
   (.moveTo draw-surface (/ (:width config/field) 2) 0)
@@ -28,7 +28,7 @@
   (set-line-width! 5)
   (.strokeRect draw-surface 0 0 (:width config/field) (:height config/field)))
 
-(defn- draw-ball [ball]
+(defn- draw-ball! [ball]
   (set-line-width! 1)
   (.beginPath draw-surface)
   (let [x (:x ball)
@@ -40,7 +40,7 @@
   (.fill draw-surface)
   (.closePath draw-surface))
 
-(defn- draw-paddle [paddle]
+(defn- draw-paddle! [paddle]
   (set-line-width! 1)
   (let [x (:x paddle)
         y (:y paddle)
@@ -48,9 +48,9 @@
         height (:height paddle)]
     (.fillRect draw-surface x y width height)))
 
-(defn draw-game [state]
+(defn draw-game! [state]
   (clear)
-  (draw-court)
-  (draw-ball (:ball state))
-  (draw-paddle (:paddle-1 state))
-  (draw-paddle (:paddle-2 state)))
+  (draw-court!)
+  (draw-ball! (:ball state))
+  (draw-paddle! (:paddle-1 state))
+  (draw-paddle! (:paddle-2 state)))

@@ -11,7 +11,7 @@
 (defn- schedule [f] (js/requestAnimationFrame f))
 
 (defn- update-screen! [state]
-  (draw/draw-game state)
+  (draw/draw-game! state)
   (if (:score-changed state)
     (let [scores (:score state)]
       (ui/draw-player-1-score! scores)
@@ -35,4 +35,4 @@
       (ui/count-down! 3 "GO" #(game-loop logic/initial-state)))))
 
 (update-screen! logic/initial-state)
-(keyhandler/register-key-handlers start-game)
+(keyhandler/register-key-handlers! start-game)

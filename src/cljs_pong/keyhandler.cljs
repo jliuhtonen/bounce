@@ -36,6 +36,6 @@
 
 (defn get-player-actions [] @player-action)
 
-(defn register-key-handlers [game-starter]
+(defn register-key-handlers! [game-starter]
     (set! (.-onkeydown js/document) (key-event-handler handle-down-keycode))
     (set! (.-onkeyup js/document) (key-event-handler #(handle-up-keycode % game-starter))))
