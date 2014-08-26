@@ -18,13 +18,19 @@
      (point (- x r) y)]))
 
 (defn- point-in-rect [point rect]
-  (and
-    "x's"
-    (>= (:x point) (:x rect))
-    (<= (:x point) (+ (:x rect) (:width rect)))
-    "y's"
-    (>= (:y point) (:y rect))
-    (<= (:y point) (+ (:y rect) (:height rect)))))
+  (let [point-x (:x point)
+        point-y (:y point)
+        rect-x (:x rect)
+        rect-y (:y rect)
+        rect-width (:width rect)
+        rect-height (:height rect)]
+    (and
+      "x's"
+      (>= point-x rect-x)
+      (<= point-x (+ rect-x rect-width))
+      "y's"
+      (>= point-y rect-y)
+      (<= point-y (+ rect-y rect-height)))))
 
 (defn- points-in-rect [points rect]
   (some #(point-in-rect % rect) points))
