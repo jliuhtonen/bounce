@@ -1,0 +1,13 @@
+{"version":3,
+ "file":"/Users/janne/projects/cljs-pong/out/cljs_pong/math.js",
+ "sources":["math.cljs"],
+ "lineCount":34,
+ "mappings":
+ ";AAAA;;AAEA,AAAKA,oBAAG,AAAMC;AACd,qBAAA,iBAAA,tCAAMC,mCAAKC,GAAG,OAAC,AAAOF,mBAASE;;AAC/B,qBAAA,iBAAA,tCAAMC,mCAAKD,GAAG,OAAC,AAAOF,mBAASE;;AAC/B,sBAAA,kBAAA,xCAAME,qCAAMF,GAAG,OAAC,AAAQF,oBAASE;;AACjC,qBAAA,mBAAA,xCAAMG,mCAAKH,EAAEI,GAAG,OAAC,AAAON,mBAASE,EAAEI;;AACnC,yBAAA,qBAAA,9CAAMC,2CAASL,GAAG,sCAAA,/BAACG,6BAAIH;;AACvB,yBAAA,uBAAA,hDAAMM,2CAASN,EAAEI,GAAG,OAAC,AAAON,mBAASE,EAAEI;;AACvC,uBAAA,qBAAA,5CAAMG,uCAAOP,EAAEI,GAAG,OAAC,AAASN,qBAASE,EAAEI;;AACvC,qBAAA,iBAAA,tCAAMI,mCAAKR,GAAG,OAAC,AAAOF,mBAASE;;AAC/B,uBAAA,mBAAA,1CAAMS,uCAAOT,GAAG,OAAC,AAASF,qBAASE;;AACnC,sBAAA,kBAAA,xCAAMU,qCAAMV,GAAG,GAAI,KAAA,JAAGA;CAAP;;CAAA;;;AACf,wBAAA,mBAAA,3CAAMW,2CAAU,OAAC,AAAUb;;AAC3B,gCAAA,8BAAA,9DAAMc,yDAAgBZ,EAAEI,GAAG,QAAG,CAAG,AAACO,mCAAQ,CAAGP,IAAEJ,MAAIA",
+ "names":
+ ["cljs-pong.math/pi", "js/Math", "cljs-pong.math/cos", "a",
+  "cljs-pong.math/sin", "cljs-pong.math/sqrt", "cljs-pong.math/pow",
+  "b", "cljs-pong.math/squared", "cljs-pong.math/minimum",
+  "cljs-pong.math/atan2", "cljs-pong.math/abs", "cljs-pong.math/floor",
+  "cljs-pong.math/sign", "cljs-pong.math/random",
+  "cljs-pong.math/random-between"]}

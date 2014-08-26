@@ -1,0 +1,6 @@
+{"version":3,
+ "file":"/Users/janne/projects/cljs-pong/out/cljs_pong/config.js",
+ "sources":["config.cljs"],
+ "lineCount":6,
+ "mappings":";AAAA;;AAEA,yBAAA,2CAAA,uDAAA,IAAA,yDAAA,xLAAKA",
+ "names":["cljs-pong.config/field"]}

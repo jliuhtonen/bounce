@@ -1,0 +1,44 @@
+// Compiled by ClojureScript 0.0-2173
+goog.provide('cljs_pong.draw');
+goog.require('cljs.core');
+goog.require('dommy.core');
+goog.require('dommy.core');
+goog.require('dommy.utils');
+goog.require('dommy.utils');
+goog.require('cljs_pong.config');
+goog.require('cljs_pong.config');
+cljs_pong.draw.draw_color = "rgba(213, 115, 230, 1)";
+cljs_pong.draw.draw_surface = (function (){var canvas = document.getElementById("canvas");var ctx = canvas.getContext("2d");ctx.fillStyle = cljs_pong.draw.draw_color;
+ctx.strokeStyle = cljs_pong.draw.draw_color;
+return ctx;
+})();
+cljs_pong.draw.set_line_width_BANG_ = (function set_line_width_BANG_(w){return cljs_pong.draw.draw_surface.lineWidth = w;
+});
+cljs_pong.draw.clear = (function clear(){return cljs_pong.draw.draw_surface.clearRect(0,0,new cljs.core.Keyword(null,"width","width",1127031096).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field),new cljs.core.Keyword(null,"height","height",4087841945).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field));
+});
+cljs_pong.draw.draw_court_BANG_ = (function draw_court_BANG_(){cljs_pong.draw.set_line_width_BANG_.call(null,2);
+cljs_pong.draw.draw_surface.beginPath();
+cljs_pong.draw.draw_surface.moveTo((new cljs.core.Keyword(null,"width","width",1127031096).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field) / 2),0);
+cljs_pong.draw.draw_surface.lineTo((new cljs.core.Keyword(null,"width","width",1127031096).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field) / 2),new cljs.core.Keyword(null,"height","height",4087841945).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field));
+cljs_pong.draw.draw_surface.stroke();
+cljs_pong.draw.draw_surface.closePath();
+cljs_pong.draw.set_line_width_BANG_.call(null,5);
+return cljs_pong.draw.draw_surface.strokeRect(0,0,new cljs.core.Keyword(null,"width","width",1127031096).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field),new cljs.core.Keyword(null,"height","height",4087841945).cljs$core$IFn$_invoke$arity$1(cljs_pong.config.field));
+});
+cljs_pong.draw.draw_ball_BANG_ = (function draw_ball_BANG_(ball){cljs_pong.draw.set_line_width_BANG_.call(null,1);
+cljs_pong.draw.draw_surface.beginPath();
+var x_5266 = new cljs.core.Keyword(null,"x","x",1013904362).cljs$core$IFn$_invoke$arity$1(ball);var y_5267 = new cljs.core.Keyword(null,"y","y",1013904363).cljs$core$IFn$_invoke$arity$1(ball);var r_5268 = new cljs.core.Keyword(null,"radius","radius",4370292740).cljs$core$IFn$_invoke$arity$1(ball);var arc_start_5269 = 0;var arc_length_5270 = (2 * Math.PI);cljs_pong.draw.draw_surface.arc(x_5266,y_5267,r_5268,arc_start_5269,arc_length_5270);
+cljs_pong.draw.draw_surface.fill();
+return cljs_pong.draw.draw_surface.closePath();
+});
+cljs_pong.draw.draw_paddle_BANG_ = (function draw_paddle_BANG_(paddle){cljs_pong.draw.set_line_width_BANG_.call(null,1);
+var x = new cljs.core.Keyword(null,"x","x",1013904362).cljs$core$IFn$_invoke$arity$1(paddle);var y = new cljs.core.Keyword(null,"y","y",1013904363).cljs$core$IFn$_invoke$arity$1(paddle);var width = new cljs.core.Keyword(null,"width","width",1127031096).cljs$core$IFn$_invoke$arity$1(paddle);var height = new cljs.core.Keyword(null,"height","height",4087841945).cljs$core$IFn$_invoke$arity$1(paddle);return cljs_pong.draw.draw_surface.fillRect(x,y,width,height);
+});
+cljs_pong.draw.draw_game_BANG_ = (function draw_game_BANG_(state){cljs_pong.draw.clear.call(null);
+cljs_pong.draw.draw_court_BANG_.call(null);
+cljs_pong.draw.draw_ball_BANG_.call(null,new cljs.core.Keyword(null,"ball","ball",1016920433).cljs$core$IFn$_invoke$arity$1(state));
+cljs_pong.draw.draw_paddle_BANG_.call(null,new cljs.core.Keyword(null,"paddle-1","paddle-1",1787260416).cljs$core$IFn$_invoke$arity$1(state));
+return cljs_pong.draw.draw_paddle_BANG_.call(null,new cljs.core.Keyword(null,"paddle-2","paddle-2",1787260417).cljs$core$IFn$_invoke$arity$1(state));
+});
+
+//# sourceMappingURL=draw.js.map

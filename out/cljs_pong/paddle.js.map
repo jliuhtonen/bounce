@@ -1,0 +1,20 @@
+{"version":3,
+ "file":"/Users/janne/projects/cljs-pong/out/cljs_pong/paddle.js",
+ "sources":["paddle.cljs"],
+ "lineCount":57,
+ "mappings":
+ ";AAAA;;;;;;AAIA,sCAAA,tCAAKA;AACL,yBAAA,zBAAKC;AACL,0BAAA,1BAAKC;AAEL,gCAAA,hCAAKC;AACL,gCAAA,hCAAKC;AACL,6BAAA,7BAAKC;AACL,2CAAA,3CAAKC;AAEL,0BAAA,2CAAA,iFAAA,GAAA,uDAAA,GAAA,yDAAA,GAAA,6DAAA,5UAAKC;AAEL,+BAAA,mCAAA,lEAAMC,qDAAaC,MAAMC,OACvB,yDAAA,6KAAA,uFAAA,tTAACC,0BAAMJ,uEAAU,CAAGE,QAAM,iHAAA,hHAAG,AAAA,qFAAQF,8EACpB,CAAGG,QAAM,2BAAA,1BAAGR,qFAAkBQ;;AAEjD,mCAAA,kCAAA,rEAAOE,6DAAiBC,QAAQ,QAAG,AAAA,6EAAIA,UAAQ,AAAA,uFAASA;;AAExD,uCAAA,+CAAA,tFAAOC,qEAAqBD,OAAOE,UACjC,sHAAA,lHAAML,QAAM,CAAG,AAAA,qFAAQG,UAAQE,UAC7B,wCAAA,uFAAA,6DAAA,rLAACJ,0BAAME,sDAAU,CAAGH,QAAM,2BAAA,1BAAGR,qFAAkBQ,mEAAgBK;;AAEnE,mCAAA,2CAAA,9EAAOC,6DAAiBH,OAAOE,UAC7B,GACE,CACE,sGAAA,rGAAI,CAAG,AAAA,6EAAIF,UAAQE,qBACnB,CAAI,CAAG,AAACH,2CAAgBC,UAAQE,aAAU,AAAA,uFAASE;CACrD,OAACH,+CAAoBD,OAAO,CAAA,CAAA,KAAME,YAAST;;CAC3C,OAACQ,+CAAoBD,OAAOE;;;AAEhC,8BAAA,iCAAA,/DAAOG,mDAAYC,EAAEJ,UACnB,uEAAA,nEAAMK,eAAa,AAACD,YAAEJ,SAASZ,+BAC7B,GAAI,CAAG,AAACkB,6BAASD,gBAAcf;CAC7Be;;CACA,mBAAA,ZAACD,cAAId;;;AAEX,8BAAA,+BAAA,7DAAOiB,mDAAYP,UACjB,GAAI,CAAG,AAACM,6BAASN,YAAUX;CAA3B;;CAEE,QAAGW,WAAS,CAAA,CAAA,KAAM,AAACQ,8BAAUR,aAAUX;;;AAE3C,0CAAA,kDAAA,5FAAOoB,2EAAwBT,SAASU,QACtC,IAAAC,iBAAA,AAAA,GAAA,AAAAC,yBAAA,qDAAAD,xFAAMD;CAEE,OAACP,sCAAWW,iBAAEd;;CAFtB,GAAA,AAAAY,yBAAA,iDAAAD;CACM,OAACR,sCAAWU,YAAEb;;CADpB,GAAA;CAGE,OAACO,sCAAWP;;CAHd;;;;;AAKF,+BAAA,qCAAA,pEAAMe,qDAAajB,OAAOY,QACxB,gLAAA,5KAAML,eAAa,AAACI,kDAAuB,AAAA,2FAAWX,QAAQY,QAC5D,OAACT,2CAAgBH,OAAOO",
+ "names":
+ ["cljs-pong.paddle/distance-from-goal", "cljs-pong.paddle/width",
+  "cljs-pong.paddle/height", "cljs-pong.paddle/acceleration",
+  "cljs-pong.paddle/deceleration", "cljs-pong.paddle/max-speed",
+  "cljs-pong.paddle/speed-loss-in-collision",
+  "cljs-pong.paddle/paddle", "cljs-pong.paddle/paddle-rect", "pos-x",
+  "pos-y", "cljs.core/assoc", "cljs-pong.paddle/paddle-bottom-y",
+  "paddle", "cljs-pong.paddle/new-paddle-position", "velocity",
+  "cljs-pong.paddle/change-position", "cljs-pong.config/field",
+  "cljs-pong.paddle/accelerate", "f", "new-velocity",
+  "cljs-pong.math/abs", "cljs-pong.paddle/decelerate",
+  "cljs-pong.math/sign", "cljs-pong.paddle/calculate-new-velocity",
+  "action", "G__5276", "cljs.core/=", "cljs.core/-", "cljs.core/+",
+  "cljs-pong.paddle/move-paddle"]}

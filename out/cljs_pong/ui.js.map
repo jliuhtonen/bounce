@@ -1,0 +1,16 @@
+{"version":3,
+ "file":"/Users/janne/projects/cljs-pong/out/cljs_pong/ui.js",
+ "sources":["ui.cljs"],
+ "lineCount":30,
+ "mappings":
+ ";AAAA;;;;AAIA,sCAAA,mCAAA,zEAAMA,yEACJ,uCAAA,AAAAC,wBAAA,xDAEUC;;AAEZ,sCAAA,mCAAA,zEAAMC,yEACJ,OAACC,gCAAY,AAAAH,wBAAA;;AAEf,kCAAA,kCAAA,pEAAMI,+DAAeC,wHACf,AAAAL,wBAAA,xDACA,AAACC,pCACD,AAACK,wGAAgBD,vJACjB,4JAAA,rJAACE;;AAEP,gCAAA,0CAAA,1EAAMC,2DAAaC,EAAEC,UAAUC,GAC7B,6CAAA,zCAAMN,MAAI,AAAAL,wBAAA,WACR,GAAI,KAAA,JAAGS;CACL,4EACMJ,xCACA,4CAAA,5CAACE,pCACD,AAACD,0IAAgBG;AACrB,kBAAA,aAAA,xBAACG,wBAAe,OAACC,2BAAY,KAAA,JAAKJ,OAAGC,UAAUC;GAA/C;;CACF,yEACMN,pCACA,AAACC,wCAAgBI,7EACjB,wFAAA,xFAACI;AACL,WAAA,aAAA,xBAACF,wBAAe,OAACT,gCAAYE;GAA7B;AACA,OAACM;;;AAET,gCAAA,qCAAA,rEAAOI,2DAAaC,GAAGC,kDACjB,AAAAC,uBAAA,AAAAC,8BAAMH,hGACN,OAACV,8FAAgB,eAAKW;;AAE5B,yCAAA,4CAAA,rFAAMG,6EAAsBC,QAC1B,+CAAA,xCAACN,mHAA6B,AAAA,2FAAWM;;AAE3C,yCAAA,4CAAA,rFAAMC,6EAAsBD,QAC1B,+CAAA,xCAACN,mHAA6B,AAAA,2FAAWM",
+ "names":
+ ["cljs-pong.ui/show-top-message!", "js/document.getElementById",
+  "dommy.core/show!", "cljs-pong.ui/hide-top-message!",
+  "dommy.core/hide!", "cljs-pong.ui/show-message!", "msg",
+  "dommy.core/set-text!", "dommy.core/remove-class!",
+  "cljs-pong.ui/count-down!", "n", "start-msg", "f", "js/setTimeout",
+  "count-down!", "dommy.core/add-class!", "cljs-pong.ui/draw-score!",
+  "id", "score", "js/document", "dommy.core/selector",
+  "cljs-pong.ui/draw-player-1-score!", "scores",
+  "cljs-pong.ui/draw-player-2-score!"]}

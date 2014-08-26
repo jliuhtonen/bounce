@@ -1,0 +1,21 @@
+{"version":3,
+ "file":"/Users/janne/projects/cljs-pong/out/cljs_pong/game.js",
+ "sources":["game.cljs"],
+ "lineCount":38,
+ "mappings":
+ ";AAAA;;;;;;;;;;AAMA,6BAAA,7BAAKA;AACL,0BAAA,2CAAA,+CAAA,EAAA,+CAAA,EAAA,oKAAA,3UAAKC,8NAA4B,AAAA,qFAAQC,iFAAsBF;AAC/D,6BAAA,2CAAA,+CAAA,EAAA,6LAAA,oKAAA,1dAAKG,wKAAsB,CAAG,AAAA,uFAASD,0BAAcF,mFAAoB,AAAA,qFAAQE,iFAAsBF;AAEvG,8BAAA,9BAAKI;AAEL,AAAKC,+BACH,4WAAA,AAAA,kDAAA,2DAAA,KAAA,uDAAA,2CAAA,6DAAA,EAAA,6DAAA,UAAA,wFAAA,yHAAA,yHAAA,uDAAA,8IAAA,uEAAA,3wCAAMC,WAAS,kHAAA,jHAAG,AAAA,uFAASJ,iCACrBK,aAAWC,wCACXC,aAAW,CAAG,AAAA,qFAAQP,0BAAcM,obAG/B,AAACE,gGACG,AAACC,uCAAmBJ,WAAWD,uEAC/B,AAACK,uCAAmBF,WAAWH,oJACjCL,wBAASE;;AAGxB,8BAAA,mCAAA,jEAAOS,qDAAcC,MAAMC,MACzB,yGAAA,+VAAA,pcAAMC,IAAE,AAAA,6EAAID,UACNE,gBACAC,UAAQ,AAAA,qFAAQf,4BAChBgB,WAAS,AAAA,2FAAWL,WACpBM,WAAS,AAAA,2FAAWN,OACxB,GACC,CAAGE,IAAEC;CAAS,uCAAA,hCAACI,0BAAMP,mEAAgB,YAAA,XAAKM;;CAD3C,GAEC,CAAGJ,IAAEE;CAAS,uCAAA,hCAACG,0BAAMP,mEAAgB,YAAA,XAAKK;;CAF3C,GAAA;CAGOL;;CAHP;;;;;AAKJ,gCAAA,gCAAA,hEAAOQ,yDAAUR,OACf,OAACS,wBAAI,yBAAA,WAAAC,iBAAA,rDAACC,qDAAM,gCAAAD,zBAACE,yCAAIrB;GAAc,AAACsB,yBAAKb;;AAEvC,8BAAA,sCAAA,pEAAMc,qDAAcC,MAAMC,SACxB,kmCAAA,9lCAAMC,WAAS,AAAA,2FAAWD,aACpBE,WAAS,AAAA,2FAAWF,aACpBhB,QAAM,AAAA,qFAAQe,WACdI,mBAAiB,AAACC,uCAAmB,AAAA,2FAAWL,OAAOE,cACvDI,mBAAiB,AAACD,uCAAmB,AAAA,2FAAWL,OAAOG,cACvDI,aAAW,AAACC,mCAAeR,WAC3BS,gBAAc,AAACzB,sCAAa,AAAA,qFAAQgB,OAAOO,gBAC3CG,gBAAc,EAAK,AAACb,yBAAEZ,MAAMwB,oBAC5BE,eAAa,EAAID,eACF,AAAC5B,mCACDyB,gBACfK,gBAAc,AAACnB,wCAASgB,eAC1B,uDAAA,oFAAA,8EAAA,8EAAA,kEAAA,qEAAA,yEAAA,hfAACI,0BAAMrB,gBAAMQ,uJAAiBI,8EACNE,sEACJK,oEACCF,yEACEG,qFACMF",
+ "names":
+ ["cljs-pong.game/wall-height", "cljs-pong.game/top-wall",
+  "cljs-pong.config/field", "cljs-pong.game/bottom-wall",
+  "cljs-pong.game/goals-to-win", "cljs-pong.game/initial-state",
+  "middle-y", "paddle-1-x", "cljs-pong.paddle/distance-from-goal",
+  "paddle-2-x", "cljs-pong.ball/new-ball",
+  "cljs-pong.paddle/paddle-rect", "cljs-pong.game/update-score",
+  "score", "ball", "x", "p1-goal", "p2-goal", "p1-score", "p2-score",
+  "cljs.core/assoc", "cljs-pong.game/running?", "cljs.core/not",
+  "p1__5271#", "cljs.core/some", "cljs.core/=", "cljs.core/vals",
+  "cljs-pong.game/update-state", "state", "actions", "player-1",
+  "player-2", "updated-paddle-1", "cljs-pong.paddle/move-paddle",
+  "updated-paddle-2", "moved-ball", "cljs-pong.ball/move-ball",
+  "updated-score", "score-changed", "updated-ball", "still-running",
+  "cljs.core/apply"]}
