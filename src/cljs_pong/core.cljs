@@ -6,7 +6,7 @@
 
 (def game-in-progress (atom false))
 
-(enable-console-print!)
+;(enable-console-print!)
 
 (defn- schedule [f] (js/requestAnimationFrame f))
 
@@ -15,21 +15,21 @@
     (draw/draw-game new-state)
     (if (:score-changed state)
       (let [scores (:score state)]
-        (ui/draw-player-1-score scores)
-        (ui/draw-player-2-score scores)))
+        (ui/draw-player-1-score! scores)
+        (ui/draw-player-2-score! scores)))
     (if (:running new-state)
       (schedule #(game-loop new-state))
       (do
         (reset! game-in-progress false)
-        (ui/show-top-message)
-        (ui/show-message "GAME OVER")))))
+        (ui/show-top-message!)
+        (ui/show-message! "GAME OVER")))))
 
 (defn start-game []
   (if (not @game-in-progress)
     (do
-      (ui/hide-top-message)
+      (ui/hide-top-message!)
       (reset! game-in-progress true)
-      (ui/count-down 3 "GO" #(game-loop logic/initial-state)))))
+      (ui/count-down! 3 "GO" #(game-loop logic/initial-state)))))
 
 (draw/draw-game logic/initial-state)
 (keyhandler/register-key-handlers start-game)
