@@ -67,10 +67,10 @@ canvas {
 #message {
   color: rgb(0, 0, 0);
   border-radius: 2px;
-  position: fixed;
+  position: absolute;
   font-size: 32px;
   margin: 0 auto;
-  top: 47%;
+  top: 350px;
   left: 0;
   right: 0;
   z-index: 10;
