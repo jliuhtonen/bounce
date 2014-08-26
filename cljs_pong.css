@@ -60,17 +60,8 @@ canvas {
   padding: 3px;
   display: inline-block;
   text-align: center;
-  width: 550px;
+  width: 549px;
   margin-bottom: 3px;
-}
-
-dd.left {
-  float: left;
-}
-
-dd.right {
-  float: right;
-  clear: right;
 }
 
 #message {
